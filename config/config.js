@@ -5,8 +5,8 @@ export default {
   database: {
     port: "3306",
     user: "gen_user",
-    host: "85.193.81.243",
+    host: "85.193.81.30",
     database: "default_db",
-    password: "k5crowage",
+    password: "xqmhyjm0n",
   },
 };
