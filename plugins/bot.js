@@ -1,10 +1,10 @@
-import TelegramBot from "node-telegram-bot-api";
-import config from "../config/config";
+const TelegramBot = require("node-telegram-bot-api");
+const config = require("../config/config");
 
 const bot = new TelegramBot(config.TOKEN, {});
 const chatId = config.CHAT_ID;
 
-export const sendGame = (game) => {
+const sendGame = (game) => {
   try {
     let msg = `🎮 <b>Информация об игре</b>\n\n`;
     msg += `<b>Номер:</b> ${game.id}\n`;
@@ -16,4 +16,4 @@ export const sendGame = (game) => {
   }
 };
 
-export default bot;
+module.exports = { sendGame };

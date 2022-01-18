@@ -1,8 +1,8 @@
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-import routes from "./routes/routers";
-import config from "./config/config";
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const routes = require("./routes/routers");
+const config = require("./config/config");
 
 const app = express();
 

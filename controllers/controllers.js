@@ -1,10 +1,10 @@
-import DataBase from "../plugins/mysql";
-import config from "../config/config";
-import { sendGame } from "../plugins/bot";
+const DataBase = require("../plugins/mysql");
+const config = require("../config/config");
+const { sendGame } = require("../plugins/bot");
 
 const mysql = new DataBase(config.database);
 
-export const addGame = async (req, res) => {
+const addGame = async (req, res) => {
   var response = { success: false };
   const { body } = req;
   if (body?.win && body?.move) {
@@ -18,21 +18,21 @@ export const addGame = async (req, res) => {
   res.json(response).status(200);
 };
 
-export const getGames = async (req, res) => {
+const getGames = async (req, res) => {
   var response = { success: false };
   const games = await mysql.getGames();
   response.games = games;
   res.json(response).status(200);
 };
 
-export const checkAuth = async (req, res) => {
+const checkAuth = async (req, res) => {
   if (!req.body?.token) return res.status(500).json({ success: false });
   const data = await mysql.getAdmin(req.body?.token);
   if (data[0]) return res.status(200).json({ success: true });
   else return res.status(404).json({ success: false });
 };
 
-export const authAdmin = async (req, res) => {
+const authAdmin = async (req, res) => {
   if (!req.body?.login || !req.body?.password)
     return res
       .status(200)
@@ -52,3 +52,5 @@ export const authAdmin = async (req, res) => {
       .json({ success: false, error: "Пользователь не найден" });
   }
 };
+
+module.exports = { addGame, getGames, checkAuth, authAdmin };

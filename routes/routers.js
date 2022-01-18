@@ -1,10 +1,10 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   addGame,
   getGames,
   checkAuth,
   authAdmin,
-} from "../controllers/controllers";
+} = require("../controllers/controllers");
 
 const router = express.Router();
 
@@ -16,4 +16,4 @@ router.post("/auth-token", checkAuth);
 
 router.post("/auth", authAdmin);
 
-export default router;
+module.exports = router;
