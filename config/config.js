@@ -1,6 +1,6 @@
 export default {
   TOKEN: "5037072307:AAFjsXJ5yaDCjRZKLxQPRyg6nXOIUvJGGrg",
-  CHAT_ID: -666552128,
+  CHAT_ID: 1568427425,
   PORT: "8080",
   database: {
     port: "3306",
